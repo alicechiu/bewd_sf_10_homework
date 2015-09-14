@@ -1,0 +1,36 @@
+<div class="col-12">
+  <h1 style="color:#008080;"><center>Blog center</h1></center>
+
+  <center><table cellspacing="15" id="c"</center>
+
+    <tr>
+      <th>Title</th><br>
+      <th>Date</th>
+      <th>Body</th>
+      <th>Author</th>
+      <th>Private<th>
+      <th colspan="2"></th>
+    </tr>
+
+<div class="well">
+  <% @articles.each do |article| %>
+    <tr>
+      <td><center><%= article.title %></center></td>
+      <td><center><%= article.date %></center></td>
+      <td><center><%= article.body %></center></td>
+      <td><center><%= article.author %></center></td>
+      <td><center><%= article.private %></center></td>
+      <td><%= link_to 'Show', article_path(article) %></td>
+      <td><%= link_to 'Edit', edit_article_path(article) %></td>
+      <td><%= link_to 'Destroy', article_path(article),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>
+
+
+  <div class="well"><br>
+    <%= link_to 'New blog', new_article_path, class: 'btn btn-lg btn-primary' %>
+  </div>
+</div>
