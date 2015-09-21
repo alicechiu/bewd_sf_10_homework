@@ -1,0 +1,24 @@
+<div class="row-fluid">
+  <div class="panel panel-default">
+  <div class="col-md-6">
+    <%=image_tag(@artist.image_url, class: "img-responsive thumbnail") %>
+  </div>
+  <div class="col-md-6">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <table class="table table-hover">
+          <!-- This is a table row with headers -->
+          <tr>
+            <th>Title</th>
+            <th>Length</th>
+            <th>Genre</th>
+          </tr>
+        <h1> <%= @artist.name%>
+          <%=link_to "Back to All Artists", artists_path, class: 'btn btn-default btn-xs'%>
+          <%=link_to "Add a new song", artist_path, class: 'btn btn-default btn-xs'%>
+        </h1>
+      </div>
+      <div class="panel-body">
+        <p> <%= @artist.description %> </p>
+      </div>
+    </div>

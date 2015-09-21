@@ -1,0 +1,31 @@
+<div class="col-md-12">
+  <div class="table-responsive">
+    <h1 style="color:#4682B4;text-align:center"> CHECKOUT THESE ARTISTS!! </h1>
+    <table class="table table-hover">
+      <!-- This is a table row with headers -->
+      <tr>
+        <th> Name </th>
+        <th> Photo </th>
+        <th style="text-align:right"> Artist profile </th>
+        <th style="text-align:right"> Actions </th>
+      </tr>
+
+      <%@artists.each do |artist| %>
+      <tr>
+        <td> <%=artist.name %> </td>
+        <td class="col-md-2"> <%= image_tag(artist.image_url, class: 'img-thumbnail img-responsive') %> </td>
+        <td> <%=artist.description %> </td>
+        <td style="text-align:right">
+          <%=link_to 'Artist songs', artist_path(artist), class: 'btn btn-info btn-xs' %>
+          <%=link_to 'Edit profile', edit_artist_path(artist), class: 'btn btn-success btn-xs' %>
+          <%=link_to 'Delete', artist, method: :delete, data: {confirm: "Are you sure you want to delete?"}, class: 'btn btn-xs btn-danger' %>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+  <div class="well">
+    <%= link_to "Add New Artist", new_artist_path, class: 'btn btn-default' %>
+    <%= link_to "View all songs", new_artist_path, class: 'btn btn-default' %>
+  </div>
+</div>
